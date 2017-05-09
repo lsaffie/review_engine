@@ -7,6 +7,7 @@ module ReviewEngine
     # GET /homeowner_reviews
     def index
       @homeowner_reviews = HomeownerReview.all
+      render json: @homeowner_reviews
     end
 
     # GET /homeowner_reviews/1
@@ -16,6 +17,7 @@ module ReviewEngine
     # GET /homeowner_reviews/new
     def new
       @homeowner_review = HomeownerReview.new
+      render json: @homeowner_review
     end
 
     # GET /homeowner_reviews/1/edit
@@ -25,27 +27,20 @@ module ReviewEngine
     # POST /homeowner_reviews
     def create
       @homeowner_review = HomeownerReview.new(homeowner_review_params)
+      @homeowner_review.save
 
-      if @homeowner_review.save
-        redirect_to @homeowner_review, notice: 'Homeowner review was successfully created.'
-      else
-        render :new
-      end
+      render json: @homeowner_review
     end
 
     # PATCH/PUT /homeowner_reviews/1
     def update
-      if @homeowner_review.update(homeowner_review_params)
-        redirect_to @homeowner_review, notice: 'Homeowner review was successfully updated.'
-      else
-        render :edit
-      end
+      @homeowner_review.update(homeowner_review_params)
+      render json: @homeowner_review
     end
 
     # DELETE /homeowner_reviews/1
     def destroy
       @homeowner_review.destroy
-      redirect_to homeowner_reviews_url, notice: 'Homeowner review was successfully destroyed.'
     end
 
     private
