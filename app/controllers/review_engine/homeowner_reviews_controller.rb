@@ -12,6 +12,7 @@ module ReviewEngine
 
     # GET /homeowner_reviews/1
     def show
+      render json: @homeowner_review
     end
 
     # GET /homeowner_reviews/new
