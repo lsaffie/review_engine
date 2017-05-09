@@ -15,16 +15,6 @@ module ReviewEngine
       render json: @homeowner_review
     end
 
-    # GET /homeowner_reviews/new
-    def new
-      @homeowner_review = HomeownerReview.new
-      render json: @homeowner_review
-    end
-
-    # GET /homeowner_reviews/1/edit
-    def edit
-    end
-
     # POST /homeowner_reviews
     def create
       @homeowner_review = HomeownerReview.new(homeowner_review_params)

@@ -1220,3 +1220,12 @@ Processing by ReviewEngine::HomeownerReviewsController#show as */*
 [active_model_serializers]   [1m[36mReviewEngine::HomeownerReviewKey Load (0.3ms)[0m  [1mSELECT "review_engine_homeowner_review_keys".* FROM "review_engine_homeowner_review_keys" INNER JOIN "review_engine_homeowner_review_attributes" ON "review_engine_homeowner_review_keys"."id" = "review_engine_homeowner_review_attributes"."homeowner_review_key_id" WHERE "review_engine_homeowner_review_attributes"."homeowner_review_id" = ?[0m  [["homeowner_review_id", 1]]
 [active_model_serializers] Rendered ReviewEngine::HomeownerReviewSerializer with ActiveModelSerializers::Adapter::Attributes (15.79ms)
 Completed 200 OK in 32ms (Views: 19.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/review_engine/homeowner_reviews/1" for 127.0.0.1 at 2017-05-09 14:59:32 -0400
+Processing by ReviewEngine::HomeownerReviewsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mReviewEngine::HomeownerReview Load (0.2ms)[0m  SELECT  "review_engine_homeowner_reviews".* FROM "review_engine_homeowner_reviews" WHERE "review_engine_homeowner_reviews"."id" = ? LIMIT 1  [["id", 1]]
+[active_model_serializers]   [1m[36mReviewEngine::HomeownerReviewKey Load (0.2ms)[0m  [1mSELECT "review_engine_homeowner_review_keys".* FROM "review_engine_homeowner_review_keys" INNER JOIN "review_engine_homeowner_review_attributes" ON "review_engine_homeowner_review_keys"."id" = "review_engine_homeowner_review_attributes"."homeowner_review_key_id" WHERE "review_engine_homeowner_review_attributes"."homeowner_review_id" = ?[0m  [["homeowner_review_id", 1]]
+[active_model_serializers] Rendered ReviewEngine::HomeownerReviewSerializer with ActiveModelSerializers::Adapter::Attributes (4.17ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.4ms)
