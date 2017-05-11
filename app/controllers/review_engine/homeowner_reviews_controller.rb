@@ -42,7 +42,15 @@ module ReviewEngine
 
       # Only allow a trusted parameter "white list" through.
       def homeowner_review_params
-        params.require(:homeowner_review).permit(:user_id, :rating, :source_user_id, :source_company_id)
+        params.require(:homeowner_review).permit(
+          :user_id,
+          :rating,
+          :source_user_id,
+          :source_company_id,
+          :homeowner_review_attributes_attributes => [
+            :homeowner_review_key_id,
+            :homeowner_review_key_value
+          ])
       end
   end
 end
