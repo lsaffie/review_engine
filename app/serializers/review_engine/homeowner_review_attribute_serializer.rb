@@ -1,9 +1,9 @@
 module ReviewEngine
   class HomeownerReviewAttributeSerializer < ActiveModel::Serializer
-    attributes :id, :key, :value
+    attributes :id, :sentiment
 
-    def key
-      object.homeowner_review_key.name
+    def sentiment
+      object.homeowner_review_sentiment.name
     end
 
   end

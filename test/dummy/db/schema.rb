@@ -11,28 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509192250) do
+ActiveRecord::Schema.define(version: 20170512011438) do
 
   create_table "review_engine_homeowner_review_attributes", force: :cascade do |t|
     t.integer  "homeowner_review_id"
-    t.integer  "homeowner_review_key_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "homeowner_review_sentiment_id"
+    t.string   "value"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
-  create_table "review_engine_homeowner_review_keys", force: :cascade do |t|
+  create_table "review_engine_homeowner_review_sentiments", force: :cascade do |t|
     t.string   "name"
+    t.string   "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "review_engine_homeowner_reviews", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "homeowner_id"
     t.integer  "rating"
-    t.integer  "source_user_id"
-    t.integer  "source_company_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "company_user_id"
+    t.integer  "company_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

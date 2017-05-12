@@ -6,7 +6,7 @@ module ReviewEngine
 
     # GET /homeowner_reviews
     def index
-      @homeowner_reviews = HomeownerReview.all
+      @homeowner_reviews = HomeownerReview.where(company_id: params[:company_id])
       render json: @homeowner_reviews
     end
 
@@ -43,13 +43,12 @@ module ReviewEngine
       # Only allow a trusted parameter "white list" through.
       def homeowner_review_params
         params.require(:homeowner_review).permit(
-          :user_id,
+          :homeowner_id,
           :rating,
-          :source_user_id,
-          :source_company_id,
+          :company_user_id,
+          :company_id,
           :homeowner_review_attributes_attributes => [
-            :homeowner_review_key_id,
-            :homeowner_review_key_value
+            :homeowner_review_sentiment_id
           ])
       end
   end
